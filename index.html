@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloom & Brreeze Cafe</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dark-theme">
+
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <img src="images/logo.jpg" alt="Bloom & Brreeze Logo" class="loader-img">
+                <div class="drawing-circles">
+                    <span class="circle-1"></span>
+                    <span class="circle-2"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="images/logo.jpg" alt="Bloom & Brreeze Logo" class="nav-logo-img">
+                <div class="logo-text-stack">
+                    <span class="logo-main">Bloom & Brreeze</span>
+                    <span class="logo-sub">Cafe</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <div class="mobile-sidebar">
+        <div class="sidebar-close-btn"><i class="fa-solid fa-times"></i></div>
+        <ul class="sidebar-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    <header id="hero" class="parallax-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-bg-container">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=1920"
+                alt="Cafe Hero Image" class="hero-zoom-bg">
+        </div>
+        <div class="hero-content reveal reveal-up">
+            <h1>More Than Coffee, It’s an Experience</h1>
+            <p>A cozy space to unwind, connect, and enjoy every moment.</p>
+            <div class="hero-btns">
+                <a href="menu.html" class="btn btn-primary">View Menu</a>
+                <a href="contact.html" class="btn btn-secondary">Visit Us</a>
+            </div>
+        </div>
+        <a href="#about" class="scroll-indicator">
+            <span class="scroll-text">SCROLL TO EXPLORE</span>
+            <i class="fa-solid fa-chevron-down scroll-arrow"></i>
+        </a>
+    </header>
+
+    <section id="genesis" class="section-padding bg-darker">
+        <div class="container genesis-grid">
+            <div class="genesis-visual-wrap reveal reveal-left">
+                <div class="overlap-img-base">
+                    <img src="images/HERO2.png" alt="Café Vibe">
+                </div>
+                <div class="overlap-img-top">
+                    <img src="images/insta.jpg" alt="Delicious Food">
+                </div>
+            </div>
+            <div class="genesis-text-wrap reveal reveal-right">
+                <span class="visit-tag">Cozy Vibes | Fresh Coffee</span>
+                <h2 class="visit-title">A Café Made for <br> Every Mood.</h2>
+                <p class="story-para">
+                    Whether it’s a quick break or a slow catch-up, we’ve got you covered.
+                    Indulge in culinary perfection at Bloom & Brreeze Café.
+                </p>
+                <a href="about.html" class="btn btn-primary" style="margin-top: 30px;">Read More</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="section-padding parallax-section">
+        <div class="container">
+            <h2 class="section-title reveal reveal-up">Menu</h2>
+            <p class="section-subtitle reveal reveal-up reveal-delay-1">Wholesome, plant-forward, and crafted with pure
+                ingredients.</p>
+
+            <div class="menu-grid">
+                <div class="menu-card reveal reveal-up">
+                    <div class="card-overlay"></div>
+                    <div class="card-inner">
+                        <img src="images/cheescake.jpg" alt="cheesecake" loading="lazy">
+                        <div class="menu-card-details">
+                            <h3>Blueberry Cheesecake</h3>
+                            <p>Creamy, dreamy, and bursting with fresh blueberry flavor. A slice of pure cheesecake
+                                bliss.</p>
+                            <span class="price">₹320</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card reveal reveal-up reveal-delay-1">
+                    <div class="card-overlay"></div>
+                    <div class="card-inner">
+                        <img src="images/Caramel frappé.png" alt="Caramel frappé">
+                        <div class="menu-card-details">
+                            <h3>Caramel Frappé</h3>
+                            <p>Rich caramel swirls blended with smooth vanilla ice cream and a subtle hint of fresh sea
+                                salt.</p>
+                            <span class="price">₹280</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card reveal reveal-up reveal-delay-2">
+                    <div class="card-overlay"></div>
+                    <div class="card-inner">
+                        <img src="images/pancake.png" alt="pancake" loading="lazy">
+                        <div class="menu-card-details">
+                            <h3>Signature Pancakes</h3>
+                            <p>Fluffy pancakes made with fresh ingredients and served with maple syrup and fresh forest
+                                berries.</p>
+                            <span class="price">₹190</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view-all-container reveal reveal-up reveal-delay-3">
+                <a href="menu.html" class="view-all-btn">
+                    View All Menu <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about" class="section-padding parallax-section">
+        <div class="container about-grid">
+            <div class="about-text-column reveal reveal-left">
+                <h2 class="section-title">Our Story</h2>
+                <div class="story-content">
+                    <p>Bloom & Breeze began with a simple idea — to create a space where people can slow down and feel
+                        at ease.</p>
+                    <p>Founded by six passionate women, our café is built on warmth, connection, and the joy of sharing
+                        moments over coffee.</p>
+                    <p>What started a`s a dream on February 14, 2026, is now a place where every cup carries care, and
+                        every visit feels like home.</p>
+                    <div class="story-highlight">
+                        <span class="type-text">Founded by Women, Built with Heart.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image-column reveal reveal-right">
+                <div class="story-image-wrap">
+                    <img src="images/ourstory.png" alt="Bloom & Breeze Cafe Interior 1" class="slideshow-img" loading="lazy">
+                    <img src="images/ourstory2.jpg" alt="Bloom & Breeze Cafe Interior 2" class="slideshow-img" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="journey" class="journey-section section-padding">
+        <div class="container">
+            <div class="journey-header reveal reveal-up">
+                <span
+                    style="font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 15px;">Follow
+                    Our Journey</span>
+                <a href="https://instagram.com/bloomandbrreeze" class="journey-handle"
+                    target="_blank">@bloomandbrreeze</a>
+            </div>
+
+            <div class="journey-grid">
+                <!-- Row 1 -->
+                <div class="journey-card reveal reveal-left">
+                    <img src="images/insta.jpg" alt="Cafe Atmosphere" loading="lazy">
+                </div>
+                <div class="journey-card reveal reveal-left reveal-delay-1">
+                    <video src="videos/hotelview.mp4" autoplay muted loop playsinline preload="metadata" poster="images/visitus.jpg"></video>
+                </div>
+                <!-- Row 2 -->
+                <div class="journey-card reveal reveal-right reveal-delay-1">
+                    <video src="videos/cofeecup.mp4" autoplay muted loop playsinline preload="metadata" poster="images/cold beverages.jpg"></video>
+                </div>
+                <div class="journey-card reveal reveal-right">
+                    <img src="images/ourstory2.jpg" alt="Interior Vibe" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="visit" class="section-padding visit-minimal-section">
+        <div class="container visit-minimal-grid">
+            <!-- Left: Minimal Content -->
+            <div class="visit-content reveal reveal-left">
+                <span class="visit-tag">Visit Us Today</span>
+                <h2 class="visit-title">Find Your Peaceful Corner.</h2>
+
+                <div class="visit-details">
+                    <span class="detail-label">Location</span>
+                    <p class="detail-text">Opposite Capital Market, Hennur–Bagalur Main Road</p>
+                </div>
+
+                <div class="visit-actions">
+                    <a href="https://maps.app.goo.gl/ExFvPbKGzKjft3BR8?g_st=ic" class="btn-dark-minimal"
+                        target="_blank">
+                        Open on Maps
+                    </a>
+                    <a href="https://link.zomato.com/xqzv/rshare?id=1299797513056318e" class="btn-dark-outline"
+                        target="_blank">
+                        Order on Zomato
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: Feature Image Overlay -->
+            <div class="visit-feature-image reveal reveal-right">
+                <div class="feature-img-wrap">
+                    <img src="images/gr8.jpg" alt="Bloom & Breeze Atmosphere">
+                    
+                    <div class="img-overlay-label">Hennur-Bagalur Main Road</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <img src="images/logo.jpg" alt="Logo" class="footer-logo-img">
+                        <span class="logo-main">Bloom & Brreeze</span>
+                    </a>
+                    <p class="footer-about">Crafting moments of peace and culinary excellence in the heart of Bangalore.
+                        Join us for a journey of flavors.</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="menu.html">The Menu</a></li>
+                        <li><a href="contact.html">Visit Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Menu Highlights</h4>
+                    <div class="footer-tags">
+                        <a href="menu.html" class="footer-tag">Specialty Coffee</a>
+                        <a href="menu.html" class="footer-tag">Pasta Kitchen</a>
+                        <a href="menu.html" class="footer-tag">Artisan Pizza</a>
+                        <a href="menu.html" class="footer-tag">All Day Brunch</a>
+                        <a href="menu.html" class="footer-tag">Desserts</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Get in Touch</h4>
+                    <ul class="footer-links">
+                        <li><i class="fa-solid fa-location-dot"
+                                style="margin-right: 10px; color: var(--text-accent);"></i> Hennur-Bagalur Main Road
+                        </li>
+                        <li><i class="fa-solid fa-phone" style="margin-right: 10px; color: var(--text-accent);"></i> +91
+                            97435 29696</li>
+                        <li><i class="fa-brands fa-instagram"
+                                style="margin-right: 10px; color: var(--text-accent);"></i> @bloomandbrreeze</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Bloom & Brreeze Café. All Rights Reserved.</p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="#" style="color: #666; text-decoration: none;">Privacy Policy</a>
+                    <a href="#" style="color: #666; text-decoration: none;">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/919743529696" style="text-decoration: none" class="fab-whatsapp" target="_blank"
+        rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <!-- Lenis: premium inertia smooth scroll (Stripe / Linear / Vercel use this) -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

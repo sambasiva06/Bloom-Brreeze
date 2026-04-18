@@ -1,0 +1,93 @@
+CATEGORY,ITEM NAME,DESCRIPTION,Veg/Non Veg,Final Cost
+The Pasta Kitchen,CLASSIC ALFREDO VEG,"Rich, creamy white sauce with Parmesan and herbs.",V,349
+The Pasta Kitchen,CLASSIC ALFREDO NON-VEG,"Rich, creamy white sauce with Parmesan and herbsand grilled chicken",NV,389
+The Pasta Kitchen,CREAMY PESTO VEG,Vibrant basil pesto finished with a touch of cream.,V,359
+The Pasta Kitchen,CREAMY PESTO NON- VEG,Vibrant basil pesto finished with a touch of cream and chicken.,NV,399
+The Pasta Kitchen,PENNE ARRABIATA VEG,"A fiery, tangy tomato and chili sauce",V,329
+The Pasta Kitchen,PENNE ARRABIATA NON-VEG,"A fiery, tangy tomato and chili sauce with chicken",NV,369
+The Pasta Kitchen,AGLIO E OLIO VEG,"Traditional garlic, olive oil, and a hint of red chili flakes.",V,329
+The Pasta Kitchen,AGLIO E OLIO NON- VEG,"Traditional garlic, olive oil, and a hint of red chili flakes with chicken",NV,369
+The Pasta Kitchen,Mac N Cheese,"Classic creamy macaroni in a rich, cheesy sauce.",V,229
+The Pasta Kitchen,Nashville Mac N Cheese,Our classic creamy macaroni and cheese topped with spicy Nashville-style crispy chicken.,NV,299
+PIZZA Stories,TURKISH CHICKEN,Spiced chicken on a crispy base with fresh veggies and mozzarella.,NV,459
+PIZZA Stories,BBQ CHCIKEN,"Smoky BBQ base, tender chicken, onions, and garden herbs.",NV,459
+PIZZA Stories,PANEER CORN,Sweet corn and marinated paneer—a vegetarian star.,V,419
+PIZZA Stories,FARM HOUSE,Sweet corn and marinated paneer—a vegetarian star.,V,429
+PIZZA Stories,MARGHERITA,"Classic tomato sauce, mozzarella, and fresh basil.",V,409
+QUESADILLAS,FAJITA CHICKEN VERDE,"Zesty grilled chicken with sauteed peppers, onions, and melted cheese",NV,369
+QUESADILLAS,MESQUITE BBQ CHICKEN,"Tangy pulled BBQ chicken, red onions, and a smoky cheese blend.",NV,399
+QUESADILLAS,SMOKY CHIPOTLE PANEER,"Marinated paneer cubes, sweet corn, and chipotle emulsion pressed to melty perfection.",V,349
+QUESADILLAS,GOLDEN CORN PEPPER,"A vegetarian classic featuring sweet corn, bell peppers, and a triple-cheese blend.",V,329
+SANDWICHGourmet Burgers & Pressed Sandwiches,PANEER CHIPOTLE,Smoky grilled paneer with fresh veggies and melted cheese.,V,299
+SANDWICHGourmet Burgers & Pressed Sandwiches,CHICKEN MELT,"Grilled chicken, chipotle sauce, and melty cheese on toasted bread.",NV,379
+SANDWICHGourmet Burgers & Pressed Sandwiches,SPINACH & CHEESE CORN,A creamy vegetarian classic toasted to perfection.,V,279
+SANDWICHGourmet Burgers & Pressed Sandwiches,BROOKLYN VEGGIE,"Our special house-made veggie patty layered with lettuce, caramelized onions, melted cheese, and chipotle sauce.",V,349
+SANDWICHGourmet Burgers & Pressed Sandwiches,NASHVILLE PANEER,"Paneer fried to a golden crunch, tossed in Nashville hot spice, with lettuce, cheese, and cool mayo on brioche.",V,369
+SANDWICHGourmet Burgers & Pressed Sandwiches,NASHVILLE CHICKEN,"Chicken fried to a golden crunch, tossed in Nashville hot spice, with lettuce, cheese, and cool mayo on brioche.",NV,389
+SANDWICHGourmet Burgers & Pressed Sandwiches,THE CHICKEN SMASH BURGER,"Juicy smashed chicken patty layered with cheese, fresh lettuce, and our signature secret sauce in a soft brioche bun.",NV,389
+BIG BREAKFAST PLATES,The Signature Brekkie Bun (Egg),"Toasted brioche bun loaded with your choice of fried or scrambled egg, a crispy hash brown, fresh lettuce, and our house-made smoky chipotle emulsion.",NV,389
+BIG BREAKFAST PLATES,The Signature Brekkie Bun (Paneer),"Toasted brioche bun loaded with paneer, a crispy hash brown, fresh lettuce, and our house-made smoky chipotle emulsion.",V,389
+BIG BREAKFAST PLATES,Artisan Egg Toast,"Choice of Sourdough, Brown, or Multigrain bread served with eggs your way: Soft Scrambled, Sunny-Side Up or a Cheese Omelette.",NV,359
+THE ALL-DAY BRUNCH,Classic Shakshuka,"Poached eggs simmered in a spiced tomato and bell pepper ragout, finished with cheese and chili oil. Served with toasted sourdough spears.",NV,269
+THE ALL-DAY BRUNCH,Thai Green Curry Veg,,V,340
+THE ALL-DAY BRUNCH,Thai Green Curry Chicken,,NV,390
+THE ALL-DAY BRUNCH,Thai Red Curry Veg,,V,340
+THE ALL-DAY BRUNCH,Thai Red Curry Chicken,,NV,390
+All Day Brunch,Paneer Steak,"Perfectly grilled cottage cheese steak topped with a smooth, mildly spicy jalapeño cream sauce along with herbed rice and mashed potato",V,439
+All Day Brunch,Grilled Chicken Steak,Perfectly grilled chicken steak topped with a silky lemon butter sauce along with herbed rice and mashed potato,NV,479
+BIG BREAKFAST PLATES,Healthy Breakfast,"Fresh fruits, yoghurt, granola, honey, boiled eggs and multigrain toast, light balanced and wholesome.",V/NV,349
+BIG BREAKFAST PLATES,English Breakfast,"Classic hearty platter with eggs, chicken sausages, toasted bread, baked beans, fresh tomato and coffee",NV,369
+BIG BREAKFAST PLATES,American Breakfast,"Eggs, chicken sausages, toast, fluffy pancakes with maple syrup and blueberry crush sweet and savoury combo.",NV,399
+,,,,
+,,,,
+BIG BREAKFAST PLATES,Signature French Toast,"Brioche soaked in vanilla custard, served with a choice of Maple & Fruit or our House Blueberry Sauce.",NV,329
+Salads & Bowls,BURRITO BOWL VEG,"A vibrant base of cilantro-lime rice topped with beans, sautéed peppers, fresh lettuce, and tomato, finished with sour cream and melted cheese",V,299
+Salads & Bowls,BURRITO BOWL NON-VEG,"A vibrant base of cilantro-lime rice topped with beans, grilled chicken, sautéed peppers, fresh lettuce, and tomato, finished with sour cream and melted cheese",NV,329
+Salads & Bowls,Caesar Salad (VEG),"Crisp romaine lettuce tossed in classic Caesar dressing with parmesan, croutons, and a hint of garlic.",V,299
+Salads & Bowls,Caesar Salad (NON-VEG),"Crisp romaine lettuce tossed in classic Caesar dressing with grilled chicken, parmesan, croutons, and a hint of garlic.",NV,349
+Salads & Bowls,Watermelon Feta Salad,"Watermelon paired with feta cheese, fresh greens and a light citrus dressing.",V,299
+SHORT EATS,Jalapeno Cheese Poppers,Golden bites stuffed with gooey melted cheese.,V,249
+SHORT EATS,Cheesy Garlic Bread,Toasted brioche with garlic butter and herbs,V,279
+SHORT EATS,Cheesy Nachos,"Loaded with mozzarella, jalapeños, and fresh veggies",V,259
+SHORT EATS,Cheesy Nachos chicken,"Loaded with mozzarella, jalapeños, chicken and fresh veggies",NV,289
+SHORT EATS,Chicken Wings,,NV,267
+SHORT EATS,Chicken Strips,,NV,267
+SHORT EATS,Veggie Fingers,,V,167
+SHORT EATS,CLASSIC,Golden crispy potato fries lightly salted.,V,149
+SHORT EATS,PERI PERI,"Crispy fries tossed in bold, spicy peri peri seasoning",V,169
+SHORT EATS,CHEESY,"Hot crispy fries topped with rich, creamy melted cheese",V,199
+Desserts & Pancakes,Classic Pancake,"Fluffy golden stacks with seasonal fruits, butter, and maple syrup.",NV,259
+Desserts & Pancakes,Nutella Overload Pancake,"Layered with Nutella, chocolate chips, and fresh fruit.",NV,299
+Desserts & Pancakes,Fluffy Cheesecake,,NV,225
+Desserts & Pancakes,Panna Cotta,,V,219
+Desserts & Pancakes,Chocolate Walnut Brownie,,NV,225
+Cookies,Chocolate Chip Coockie,,NV,67
+Cookies,Sugar Free Donut Coockie,,V,75
+,,,,
+Hot Beverages,,,,
+Espresso,,,,149
+Americano,,,,169
+Cappucino,,,,229
+Flat White,,,,229
+Café Latte,,,,239
+Café Mocha,,,,259
+Hot Chocolate,,,,289
+Affogato,,,,249
+Cortado,,,,180
+Cold Beverages,,,,
+Iced Americano,,,,179
+Classic Cold Coffee,,,,269
+Vietnamese Coffee,,,,279
+Hazelnut Cold Coffee,,,,289
+Caramel Frappe,,,,299
+Iced Rose Mocha,,,,299
+Coffee Tonic,,,,259
+Sunset Brew,,,,279
+Blue Berry Shake,,,,239
+Lemon Iced Tea,,,,199
+Strawberry Oreo Shake,,,,239
+Peach Iced Tea,,,,199
+Bobba Tea,,,,167
+Blue Lagoon Mocktail,,,,199
+Brownie Loaded Shake,,,,290
+Passion Fruit,,,,210

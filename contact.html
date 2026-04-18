@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Bloom & Brreeze Café</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Contact page — desktop base styles + mobile responsive overrides */
+
+        /* === DESKTOP: Order Online section layout === */
+        .contact-order-section {
+            background: #050505;
+        }
+        .contact-order-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+
+        /* ── 768px ── iPad Mini / Galaxy A51 and below ── */
+        @media (max-width: 768px) {
+
+            /* === SECTION 1: Visit Us === */
+            #visit {
+                display: block !important;
+                padding-top: 110px !important;
+                min-height: auto !important;
+            }
+            #visit > .container {
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                gap: 35px !important;
+            }
+            #visit h1 {
+                font-size: clamp(2.2rem, 9vw, 3.2rem) !important;
+                margin-bottom: 25px !important;
+            }
+            /* Stack Get Directions + Message Us buttons */
+            .visit-content > div[style*="display: flex; gap: 20px"] {
+                flex-direction: column !important;
+                gap: 12px !important;
+                width: 100% !important;
+            }
+            .visit-content .btn {
+                width: 100% !important;
+                text-align: center !important;
+                justify-content: center !important;
+                box-sizing: border-box !important;
+                padding: 16px 24px !important;
+            }
+
+            /* === SECTION 2: Order Online === */
+            .contact-order-section { padding: 70px 0 !important; }
+            .contact-order-grid {
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                gap: 35px !important;
+            }
+
+            /* "ONLINE ORDERING" eyebrow label — centre on mobile */
+            .contact-order-section .visit-content > span {
+                text-align: center !important;
+                display: block !important;
+            }
+
+            /* "Cravings at Your Doorstep" heading */
+            .contact-order-section h2 {
+                font-size: clamp(2rem, 8vw, 2.8rem) !important;
+                margin-bottom: 20px !important;
+                text-align: center !important;
+            }
+
+            /* Description paragraph — full width, centred */
+            .contact-order-section p[style] {
+                max-width: 100% !important;
+                font-size: 1rem !important;
+                text-align: center !important;
+                margin-bottom: 30px !important;
+            }
+
+            /* Zomato card — reduce padding, full width */
+            div[style*="border-radius: 15px"] {
+                padding: 24px 20px !important;
+            }
+
+            /* Zomato button — full width */
+            div[style*="border-radius: 15px"] .btn {
+                width: 100% !important;
+                box-sizing: border-box !important;
+                padding: 16px 20px !important;
+                font-size: 0.85rem !important;
+            }
+
+            /* Social links row (Instagram + WhatsApp) — stack vertically */
+            .social-links-row {
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 16px !important;
+                margin-top: 25px !important;
+                text-align: center !important;
+            }
+            .social-links-row a {
+                justify-content: center !important;
+                font-size: 1rem !important;
+            }
+        }
+
+        /* ── 600px ── Galaxy S8+ / Pixel 7 / iPhone XR ── */
+        @media (max-width: 600px) {
+            #visit { padding-top: 100px !important; }
+            #visit h1 { font-size: clamp(2rem, 9vw, 2.6rem) !important; }
+
+            .contact-order-section { padding: 60px 0 !important; }
+            .contact-order-section h2 { font-size: clamp(1.8rem, 8vw, 2.2rem) !important; }
+            .contact-order-section p[style] { font-size: 0.95rem !important; }
+            div[style*="border-radius: 15px"] { padding: 20px 16px !important; }
+        }
+
+        /* ── 480px ── iPhone 14 Pro Max / Galaxy Z Fold 5 ── */
+        @media (max-width: 480px) {
+            #visit { padding-top: 90px !important; }
+            #visit h1 { font-size: clamp(1.8rem, 9vw, 2.2rem) !important; margin-bottom: 20px !important; }
+
+            /* Address & hours labels */
+            .visit-content span[style*="letter-spacing: 2px"] {
+                font-size: 0.78rem !important;
+            }
+            .visit-content p[style*="font-size: 1.15rem"] {
+                font-size: 1rem !important;
+            }
+
+            .contact-order-section { padding: 55px 0 !important; }
+            .contact-order-section h2 { font-size: clamp(1.6rem, 8.5vw, 2rem) !important; }
+            div[style*="border-radius: 15px"] { padding: 18px 14px !important; }
+            .social-links-row a { font-size: 0.92rem !important; }
+        }
+
+        /* ── 375px ── iPhone SE ── */
+        @media (max-width: 375px) {
+            #visit { padding-top: 85px !important; }
+            #visit h1 { font-size: clamp(1.6rem, 9vw, 2rem) !important; }
+            .contact-order-section h2 { font-size: clamp(1.4rem, 9vw, 1.8rem) !important; }
+            .contact-order-section p[style] { font-size: 0.88rem !important; }
+            .social-links-row a { font-size: 0.85rem !important; }
+        }
+    </style>
+</head>
+
+<body class="dark-theme">
+    <!-- Navbar -->
+    <nav class="scrolled">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.jpg" alt="Bloom & Brreeze Logo" class="nav-logo-img">
+                <div class="logo-text-stack">
+                    <span class="logo-main" style="color:#fff;">Bloom & Brreeze</span>
+                    <span class="logo-sub">Cafe</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <div class="mobile-sidebar">
+        <div class="sidebar-close-btn"><i class="fa-solid fa-times"></i></div>
+        <ul class="sidebar-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Master Contact Section (Visit Us) -->
+    <section id="visit" class="section-padding"
+        style="padding-top: 180px; min-height: 85vh; display: flex; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.03);">
+        <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+            <!-- Left: Content -->
+            <div class="visit-content">
+                <span class="reveal reveal-up"
+                    style="font-family:'Outfit', sans-serif; font-size: 0.85rem; letter-spacing: 4px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 20px; display: block;">VISIT
+                    US</span>
+                <h1 class="reveal reveal-up"
+                    style="font-family:'Playfair Display', serif; font-size: clamp(3.2rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 50px; color: var(--text-main); font-weight: 400;">
+                    Hennur–Bagalur<br>Main Road</h1>
+
+                <!-- Address -->
+                <div class="reveal reveal-up" style="margin-bottom: 45px; transition-delay: 0.2s;">
+                    <span
+                        style="font-family:'Outfit', sans-serif; font-size: 0.85rem; letter-spacing: 2px; color: var(--text-accent); text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 15px;">THE
+                        ADDRESS</span>
+                    <p
+                        style="font-family:'Outfit', sans-serif; font-size: 1.15rem; line-height: 1.8; color: var(--text-muted); font-weight: 300;">
+                        Opposite Capital Market,<br>
+                        Hennur–Bagalur Main Road,<br>
+                        Bangalore, Karnataka
+                    </p>
+                </div>
+
+                <!-- Hours -->
+                <div class="reveal reveal-up" style="margin-bottom: 55px; transition-delay: 0.3s;">
+                    <span
+                        style="font-family:'Outfit', sans-serif; font-size: 0.85rem; letter-spacing: 2px; color: var(--text-accent); text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 15px;">OPENING
+                        HOURS</span>
+                    <p
+                        style="font-family:'Outfit', sans-serif; font-size: 1.15rem; line-height: 1.8; color: var(--text-muted); font-weight: 300;">
+                        Monday - Friday: 07:00 AM – 09:00 PM<br>
+                        Saturday - Sunday: 08:00 AM – 10:00 PM
+                    </p>
+                </div>
+
+                <!-- Buttons -->
+                <div class="reveal reveal-up" style="display: flex; gap: 20px; transition-delay: 0.4s;">
+                    <a href="https://maps.app.goo.gl/ExFvPbKGzKjft3BR8?g_st=ic" class="btn btn-primary" target="_blank"
+                        style="padding: 20px 40px; border-radius: 4px;">
+                        Get Directions
+                    </a>
+                    <a href="https://wa.me/919743529696" class="btn btn-dark-outline" target="_blank"
+                        style="padding: 20px 40px; border-radius: 4px; display: inline-flex; align-items: center; gap: 12px;">
+                        <i class="fa-brands fa-whatsapp"></i> Message Us
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: Feature Image -->
+            <div class="reveal reveal-right">
+                <div
+                    style="border-radius: 20px; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.4); position: relative;">
+                    <img src="images/visitus.jpg" alt="Bloom & Breeze Atmosphere"
+                        style="width: 100%; height: auto; display: block;" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Online Section -->
+    <section class="contact-order-section section-padding">
+        <div class="container contact-order-grid">
+            <!-- Left: Feature Image (BOBA) -->
+            <div class="reveal reveal-left">
+                <div
+                    style="border-radius: 25px; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.5); position: relative; border: 1px solid rgba(255,255,255,0.05);">
+                    <img src="images/BOBA.jpg" alt="Refreshment"
+                        style="width: 100%; height: auto; display: block; filter: brightness(0.9);" loading="lazy">
+                </div>
+            </div>
+
+            <!-- Right: Content / Zomato Card -->
+            <div class="visit-content">
+                <span class="reveal reveal-up"
+                    style="font-family:'Outfit', sans-serif; font-size: 0.85rem; letter-spacing: 4px; color: var(--text-accent); text-transform: uppercase; margin-bottom: 20px; display: block;">ONLINE
+                    ORDERING</span>
+                <h2 class="reveal reveal-up"
+                    style="font-family:'Playfair Display', serif; font-size: clamp(2.8rem, 4vw, 3.8rem); line-height: 1.1; margin-bottom: 35px; color: var(--text-main); font-weight: 400; transition-delay: 0.1s;">
+                    Cravings at<br>Your Doorstep</h2>
+
+                <p class="reveal reveal-up"
+                    style="font-family:'Outfit', sans-serif; font-size: 1.15rem; line-height: 1.8; color: var(--text-muted); font-weight: 300; margin-bottom: 45px; max-width: 90%; transition-delay: 0.2s;">
+                    No email? No problem. We believe in direct connections. Order your favorite brews and treats via
+                    Zomato or simply DM us on Instagram for any special requests.
+                </p>
+
+                <!-- Zomato Card -->
+                <div class="reveal reveal-up"
+                    style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); padding: 40px; border-radius: 15px; display: flex; flex-direction: column; gap: 25px; transition-delay: 0.3s;">
+
+                    <a href="https://link.zomato.com/xqzv/rshare?id=1299797513056318e" class="btn btn-primary"
+                        target="_blank"
+                        style="padding: 18px 35px; text-align: center; justify-content: center; width: 100%;">
+                        Order on Zomato
+                    </a>
+                </div>
+
+                <div class="social-links-row reveal reveal-up" style="transition-delay: 0.4s;">
+                    <a href="https://www.instagram.com/bloomandbrreeze?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                        target="_blank"
+                        style="color: var(--text-muted); text-decoration: none; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; transition: color 0.3s;"
+                        onmouseover="this.style.color='var(--text-accent)'"
+                        onmouseout="this.style.color='var(--text-muted)'">
+                        <i class="fa-brands fa-instagram"></i> @bloomandbrreeze
+                    </a>
+                    <a href="https://wa.me/919743529696" target="_blank"
+                        style="text-decoration: none; color: var(--text-muted); text-decoration: none; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; transition: color 0.3s;"
+                        onmouseover="this.style.color='var(--text-accent)'"
+                        onmouseout="this.style.color='var(--text-muted)'">
+                        <i class="fa-brands fa-whatsapp"></i> +91 97435 29696
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Premium Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <img src="images/logo.jpg" alt="Logo" class="footer-logo-img" loading="lazy">
+                        <span class="logo-main">Bloom & Brreeze</span>
+                    </a>
+                    <p class="footer-about">Crafting moments of peace and culinary excellence in the heart of Bangalore.
+                        Join us for a journey of flavors.</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="menu.html">The Menu</a></li>
+                        <li><a href="contact.html">Visit Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Menu Highlights</h4>
+                    <div class="footer-tags">
+                        <a href="menu.html" class="footer-tag">Specialty Coffee</a>
+                        <a href="menu.html" class="footer-tag">Pasta Kitchen</a>
+                        <a href="menu.html" class="footer-tag">Artisan Pizza</a>
+                        <a href="menu.html" class="footer-tag">All Day Brunch</a>
+                        <a href="menu.html" class="footer-tag">Desserts</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Get in Touch</h4>
+                    <ul class="footer-links">
+                        <li><i class="fa-solid fa-location-dot"
+                                style="margin-right: 10px; color: var(--text-accent);"></i> Hennur-Bagalur Main Road
+                        </li>
+                        <li><i class="fa-solid fa-phone" style="margin-right: 10px; color: var(--text-accent);"></i> +91
+                            97435 29696</li>
+                        <li><i class="fa-brands fa-instagram"
+                                style="margin-right: 10px; color: var(--text-accent);"></i> @bloomandbreeze</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Bloom & Brreeze Café. All Rights Reserved.</p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="#" style="color: #666; text-decoration: none;">Privacy Policy</a>
+                    <a href="#" style="color: #666; text-decoration: none;">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/919743529696" class="fab-whatsapp" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <!-- Lenis: premium inertia smooth scroll -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

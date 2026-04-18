@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Bloom &amp; Brreeze Café</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ---- Menu Page Overrides ---- */
+        .menu-view-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 50px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 20px;
+        }
+
+        .back-to-cats {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-muted);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            font-family: var(--font-body);
+        }
+
+        .back-to-cats:hover {
+            background: var(--text-accent);
+            color: #121212;
+            border-color: var(--text-accent);
+        }
+
+        .menu-items-container {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .menu-item {
+            padding: 22px 28px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-left: 3px solid transparent;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Shimmer sheen overlay */
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(255,255,255,0.04) 0%,
+                transparent 60%
+            );
+            pointer-events: none;
+            border-radius: inherit;
+        }
+
+        /* Hover state — gold lift */
+        .menu-item:hover {
+            background: rgba(255, 255, 255, 0.055);
+            border-color: rgba(255, 255, 255, 0.12);
+            border-left-color: var(--text-accent);
+            transform: translateY(-3px);
+            box-shadow:
+                0 12px 35px rgba(0, 0, 0, 0.35),
+                0 0 0 1px rgba(218, 165, 32, 0.08);
+        }
+
+
+        .item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 20px;
+        }
+
+        .item-name-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .item-name {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: var(--text-main);
+        }
+
+        .item-price {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: var(--text-accent);
+            white-space: nowrap;
+        }
+
+        .item-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            max-width: 85%;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        /* Diet indicator badges */
+        .diet-indicator {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 2px 7px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+        .diet-veg    { border: 1.5px solid #2ecc71; color: #2ecc71; }
+        .diet-nonveg { border: 1.5px solid #e74c3c; color: #e74c3c; }
+        .diet-hybrid { border: 1.5px solid #DAA520; color: #DAA520; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade { animation: fadeIn 0.5s ease forwards; }
+
+        /* Menu view hidden by default */
+        #menu-view { display: none; }
+
+        /* ============================================================
+           MENU ITEMS VIEW — MOBILE RESPONSIVE
+           ============================================================ */
+
+        /* ── 768px — iPad Mini / Galaxy A51 ── */
+        @media (max-width: 768px) {
+            /* Container top padding */
+            .container.section-padding {
+                padding-top: 100px !important;
+            }
+
+            /* Category title + back button: stack vertically */
+            .menu-view-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+                margin-bottom: 30px;
+                padding-bottom: 16px;
+            }
+
+            /* Override the inline font-size on #view-title */
+            #view-title {
+                font-size: clamp(1.8rem, 7vw, 2.4rem) !important;
+                margin-bottom: 0 !important;
+                line-height: 1.2;
+            }
+
+            /* Back button spans full width */
+            .back-to-cats {
+                width: 100%;
+                text-align: center;
+                padding: 10px 16px;
+                font-size: 0.78rem;
+            }
+
+            /* Each item row wraps */
+            .item-row {
+                flex-wrap: wrap;
+                gap: 6px 12px;
+                align-items: flex-start;
+            }
+
+            .item-name-wrap {
+                flex: 1 1 auto;
+                min-width: 0;
+            }
+
+            .item-name  { font-size: 1.1rem; }
+            .item-price { font-size: 1.1rem; }
+
+            .item-desc  {
+                max-width: 100%;
+                font-size: 0.88rem;
+            }
+
+            .menu-item { padding: 18px 20px; gap: 8px; }
+        }
+
+        /* ── 600px — Galaxy S8+/Pixel 7/iPhone XR ── */
+        @media (max-width: 600px) {
+            #view-title { font-size: clamp(1.6rem, 7.5vw, 2rem) !important; }
+
+            .item-name  { font-size: 1rem; }
+            .item-price { font-size: 1rem; }
+            .item-desc  { font-size: 0.85rem; }
+            .menu-item  { padding: 16px 18px; gap: 6px; }
+
+            /* Price always on new line if name is long */
+            .item-row {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .item-name-wrap { flex: 1 1 60%; }
+            .item-price     { flex: 0 0 auto; }
+        }
+
+        /* ── 480px — iPhone 14 Pro Max / Galaxy Z Fold 5 ── */
+        @media (max-width: 480px) {
+            .container.section-padding { padding-top: 90px !important; }
+
+            #view-title { font-size: clamp(1.5rem, 8vw, 1.9rem) !important; }
+
+            .back-to-cats { font-size: 0.75rem; padding: 9px 14px; }
+
+            .item-name  { font-size: 0.95rem; line-height: 1.3; }
+            .item-price { font-size: 0.95rem; }
+            .item-desc  { font-size: 0.82rem; line-height: 1.55; }
+            .menu-item  { padding: 14px 16px; }
+
+            .diet-indicator { font-size: 0.58rem; padding: 1px 5px; }
+        }
+
+        /* ── 390px — iPhone 12 Pro / 14 Pro ── */
+        @media (max-width: 390px) {
+            #view-title { font-size: clamp(1.3rem, 8.5vw, 1.7rem) !important; }
+
+            .item-name  { font-size: 0.9rem; }
+            .item-price { font-size: 0.9rem; }
+            .item-desc  { font-size: 0.8rem; }
+
+            /* Stack price below name on very small screens */
+            .item-row {
+                flex-direction: column;
+                gap: 4px;
+            }
+            .item-price {
+                font-size: 1rem;
+                color: var(--text-accent);
+            }
+        }
+
+        /* ── 375px — iPhone SE ── */
+        @media (max-width: 375px) {
+            .container.section-padding { padding-top: 85px !important; }
+            #view-title { font-size: clamp(1.2rem, 9vw, 1.5rem) !important; }
+            .item-name  { font-size: 0.85rem; }
+            .item-price { font-size: 0.95rem; }
+            .item-desc  { font-size: 0.78rem; }
+            .menu-item  { padding: 13px 14px; }
+            .back-to-cats { font-size: 0.72rem; padding: 8px 12px; }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+
+    <!-- ===== NAVBAR ===== -->
+    <nav id="navbar" class="scrolled">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.jpg" alt="Bloom &amp; Brreeze Logo" class="nav-logo-img">
+                <div class="logo-text-stack">
+                    <span class="logo-main">Bloom &amp; Brreeze</span>
+                    <span class="logo-sub">Cafe</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html" class="active">Menu</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-sidebar">
+        <div class="sidebar-close-btn"><i class="fa-solid fa-times"></i></div>
+        <ul class="sidebar-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="container section-padding" style="padding-top: 140px;">
+
+        <!-- Category header (hidden when inside a category view) -->
+        <div id="menu-main-header" style="margin-bottom: 50px;">
+            <h1 class="section-title">Our Menu</h1>
+            <p class="section-subtitle" style="margin-inline: 0; text-align: left;">Hand-selected flavors, crafted for pure indulgence.</p>
+        </div>
+
+        <!-- Category Grid (populated by script.js) -->
+        <div id="category-grid"></div>
+
+        <!-- Individual Category View (shown by script.js on card click) -->
+        <div id="menu-view">
+            <!-- Hidden image used by script.js for category image reference -->
+            <img id="view-cat-img" src="" alt="" style="display:none;">
+            <div class="menu-view-header">
+                <h2 id="view-title" class="section-title" style="font-size: 3rem; margin-bottom: 0;">Category</h2>
+                <button class="back-to-cats" onclick="showCategories()">
+                    <i class="fa-solid fa-grid-2"></i> All Categories
+                </button>
+            </div>
+            <ul id="items-list" class="menu-items-container"></ul>
+        </div>
+
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <img src="images/logo.jpg" alt="Logo" class="footer-logo-img">
+                        <span class="logo-main">Bloom &amp; Brreeze</span>
+                    </a>
+                    <p class="footer-about">Crafting moments of peace and culinary excellence in the heart of Bangalore. Join us for a journey of flavors.</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="menu.html">The Menu</a></li>
+                        <li><a href="contact.html">Visit Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Menu Highlights</h4>
+                    <div class="footer-tags">
+                        <a href="menu.html" class="footer-tag">Specialty Coffee</a>
+                        <a href="menu.html" class="footer-tag">Pasta Kitchen</a>
+                        <a href="menu.html" class="footer-tag">Artisan Pizza</a>
+                        <a href="menu.html" class="footer-tag">All Day Brunch</a>
+                        <a href="menu.html" class="footer-tag">Desserts</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Get in Touch</h4>
+                    <ul class="footer-links">
+                        <li><i class="fa-solid fa-location-dot" style="margin-right:10px;color:var(--text-accent);"></i>Hennur-Bagalur Main Road</li>
+                        <li><i class="fa-solid fa-phone" style="margin-right:10px;color:var(--text-accent);"></i>+91 97435 29696</li>
+                        <li><i class="fa-brands fa-instagram" style="margin-right:10px;color:var(--text-accent);"></i>@bloomandbrreeze</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Bloom &amp; Brreeze Café. All Rights Reserved.</p>
+                <div style="display:flex;gap:20px;">
+                    <a href="#" style="color:#666;text-decoration:none;">Privacy Policy</a>
+                    <a href="#" style="color:#666;text-decoration:none;">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/919743529696" style="text-decoration:none" class="fab-whatsapp" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Lenis: premium inertia smooth scroll -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
