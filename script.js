@@ -299,7 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "The Pasta Kitchen": "images/pastakitchen.avif",
         "PIZZA Stories": "images/pizza stories.avif",
         "QUESADILLAS": "images/QUESADILLAS.avif",
-        "Burgers & Sandwiches": "images/burgers & sandwiches.avif",
+        "Burgers & Sandwiches": "images/Burgers & Sandwiches.avif",
         "Salads & Bowls": "images/salads and bowls.avif",
         "Desserts": "images/cheescake.jpg",
         "Cookies": "images/cookies.avif",
@@ -328,6 +328,82 @@ document.addEventListener('DOMContentLoaded', () => {
             card.onclick = () => showMenu(cat);
             grid.appendChild(card);
             setTimeout(() => card.classList.add('active'), 100);
+        });
+        initSearch(); // Initialize search after menu is ready
+    }
+
+    function initSearch() {
+        const searchInput = document.getElementById('menu-search');
+        if (!searchInput) return;
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            const grid = document.getElementById('category-grid');
+            const header = document.getElementById('menu-main-header');
+            const searchView = document.getElementById('search-results-view');
+            const menuView = document.getElementById('menu-view');
+
+            if (query.length < 2) {
+                if (searchView) searchView.style.display = 'none';
+                if (grid) grid.style.display = 'grid';
+                // Don't show header if we are currently in a category view
+                if (header && (!menuView || menuView.style.display !== 'block')) {
+                    header.style.display = 'block';
+                }
+                return;
+            }
+
+            // Perform search
+            const results = [];
+            Object.keys(menuData).forEach(category => {
+                menuData[category].forEach(item => {
+                    if (item.name.toLowerCase().includes(query) || (item.desc && item.desc.toLowerCase().includes(query))) {
+                        results.push({ ...item, category });
+                    }
+                });
+            });
+
+            // Display results
+            if (grid) grid.style.display = 'none';
+            if (menuView) menuView.style.display = 'none';
+            if (searchView) {
+                searchView.style.display = 'block';
+                const resultsList = document.getElementById('search-results-list');
+                resultsList.innerHTML = '';
+
+                if (results.length === 0) {
+                    resultsList.innerHTML = '<div class="no-results">No matches found for "' + query + '". Try something else!</div>';
+                } else {
+                    results.forEach((item, idx) => {
+                        const li = document.createElement('li');
+                        li.className = 'menu-item reveal reveal-up active'; // Set active for search results
+                        li.style.transitionDelay = `${idx * 0.05}s`;
+                        
+                        let dietTag = '';
+                        if (item.diet) {
+                            let dietClass = '';
+                            const dietVal = item.diet.toLowerCase();
+                            if (dietVal === 'v') dietClass = 'diet-veg';
+                            else if (dietVal === 'nv') dietClass = 'diet-nonveg';
+                            else if (dietVal.includes('/')) dietClass = 'diet-hybrid';
+                            else dietClass = 'diet-nonveg';
+                            dietTag = `<span class="diet-indicator ${dietClass}">${item.diet.toUpperCase()}</span>`;
+                        }
+
+                        li.innerHTML = `
+                            <div class="item-row">
+                                <div class="item-name-wrap">
+                                    <span class="item-name">${item.name} <small style="font-size:0.7rem; color:var(--text-accent); opacity:0.7;">(${item.category})</small></span>
+                                    ${dietTag}
+                                </div>
+                                <span class="item-price">₹${item.price}</span>
+                            </div>
+                            <p class="item-desc">${item.desc || ""}</p>
+                        `;
+                        resultsList.appendChild(li);
+                    });
+                }
+            }
         });
     }
 
@@ -388,8 +464,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const grid = document.getElementById('category-grid');
         const header = document.getElementById('menu-main-header');
         const view = document.getElementById('menu-view');
+        const searchView = document.getElementById('search-results-view');
+        const searchInput = document.getElementById('menu-search');
         
         if (view) view.classList.remove('active');
+        if (searchView) searchView.style.display = 'none';
+        if (searchInput) searchInput.value = ''; // Reset search
+
         setTimeout(() => {
             if (view) view.style.display = 'none';
             if (grid) grid.style.display = 'grid';

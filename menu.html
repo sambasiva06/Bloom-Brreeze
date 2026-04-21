@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu | Bloom &amp; Brreeze Café</title>
+    <title>Our Menu | Bloom & Brreeze Café | Best Coffee & Brunch in Bangalore</title>
+    <meta name="description" content="Explore the diverse menu at Bloom & Brreeze Café (Bloom and Breeze) – featuring specialty coffee, artisan pizzas, fresh pasta, and all-day brunch in Bangalore.">
+    <meta name="keywords" content="Bloom & Brreeze Menu, Cafe Menu Bangalore, Specialty Coffee, Artisan Pizza, Pasta Bangalore, Best Brunch Menu">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bloomandbrreeze.com/menu.html">
+    <meta property="og:title" content="Our Menu | Bloom & Brreeze Café | Specialty Coffee & Artisan Eats">
+    <meta property="og:description" content="From specialty coffee to artisan pizzas, discover the full range of flavors at Bloom & Brreeze (Bloom and Breeze) Bangalore.">
+    <meta property="og:image" content="images/cheescake.jpg">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -271,6 +280,60 @@
             .menu-item  { padding: 13px 14px; }
             .back-to-cats { font-size: 0.72rem; padding: 8px 12px; }
         }
+        /* Search Bar Styles */
+        .menu-search-container {
+            margin-bottom: 40px;
+            position: relative;
+            max-width: 500px;
+        }
+
+        .menu-search-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 25px 15px 50px;
+            border-radius: 50px;
+            color: var(--text-main);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .menu-search-input:focus {
+            outline: none;
+            border-color: var(--text-accent);
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 0 20px rgba(218, 165, 32, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 1rem;
+            pointer-events: none;
+        }
+
+        #search-results-view {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .no-results {
+            text-align: center;
+            color: var(--text-muted);
+            padding: 50px 0;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .menu-search-container {
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
 <body class="dark-theme">
@@ -279,7 +342,7 @@
     <nav id="navbar" class="scrolled">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="images/logo.jpg" alt="Bloom &amp; Brreeze Logo" class="nav-logo-img">
+                <img src="images/logo.jpg" alt="Bloom & Brreeze Logo" class="nav-logo-img">
                 <div class="logo-text-stack">
                     <span class="logo-main">Bloom &amp; Brreeze</span>
                     <span class="logo-sub">Cafe</span>
@@ -311,8 +374,25 @@
 
         <!-- Category header (hidden when inside a category view) -->
         <div id="menu-main-header" style="margin-bottom: 50px;">
-            <h1 class="section-title">Our Menu</h1>
-            <p class="section-subtitle" style="margin-inline: 0; text-align: left;">Hand-selected flavors, crafted for pure indulgence.</p>
+            <h1 class="section-title">The Menu at Bloom & Brreeze Café</h1>
+            <p class="section-subtitle" style="margin-inline: 0; text-align: left;">Hand-selected flavors and specialty brews, crafted for pure indulgence in Bangalore.</p>
+            
+            <!-- Search Bar -->
+            <div class="menu-search-container reveal reveal-up">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="menu-search" class="menu-search-input" placeholder="Search for coffee, pizza, desserts...">
+            </div>
+        </div>
+
+        <!-- Search Results View -->
+        <div id="search-results-view">
+            <div class="menu-view-header">
+                <h2 class="section-title" style="font-size: 2.5rem; margin-bottom: 0;">Search Results</h2>
+                <button class="back-to-cats" onclick="showCategories()">
+                    <i class="fa-solid fa-times"></i> Clear Search
+                </button>
+            </div>
+            <ul id="search-results-list" class="menu-items-container"></ul>
         </div>
 
         <!-- Category Grid (populated by script.js) -->
@@ -339,7 +419,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="index.html" class="footer-logo">
-                        <img src="images/logo.jpg" alt="Logo" class="footer-logo-img">
+                        <img src="images/logo.jpg" alt="Bloom and Brreeze Official Logo" class="footer-logo-img">
                         <span class="logo-main">Bloom &amp; Brreeze</span>
                     </a>
                     <p class="footer-about">Crafting moments of peace and culinary excellence in the heart of Bangalore. Join us for a journey of flavors.</p>
