@@ -1153,6 +1153,18 @@ nav.scrolled .nav-logo-img {
     transform: translateY(-20px) translateX(-10px);
 }
 
+/* --- Google Reviews Section (Trustindex Widget) --- */
+.reviews-widget-container {
+    min-height: 250px; /* Placeholder height to prevent layout shift */
+    width: 100%;
+    padding: 20px 0;
+}
+
+/* Ensure the widget blends with the dark theme if the widget itself doesn't have its own theme */
+.reviews-widget-container iframe {
+    border-radius: var(--radius-md) !important;
+}
+
 /* --- Footer --- */
 footer {
     background: #080808;
