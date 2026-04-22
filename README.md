@@ -1,6 +1,6 @@
-# Bloom & Brreeze Website Enhancements Summary
+# Bloom & Brreeze Cafe Website Enhancements Summary
 
-This document summarizes the technical enhancements and features implemented for the Bloom & Brreeze website to enable dynamic content management and improved user interaction.
+This document summarizes the technical enhancements and features implemented for the Bloom & Brreeze Cafe website to enable dynamic content management and improved user interaction.
 
 ## 1. Dynamic Content Integration (Google Sheets)
 
