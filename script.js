@@ -191,121 +191,51 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- MENU PAGE LOGIC ---
-    const menuData = {
-        "Breakfasts": [
-            { name: "The Signature Brekkie Bun (Egg)", desc: "Toasted brioche bun with egg, crispy hash brown, lettuce, and smoky chipotle emulsion.", price: "389", diet: "nv" },
-            { name: "The Signature Brekkie Bun (Paneer)", desc: "Toasted brioche bun with paneer, crispy hash brown, lettuce, and smoky chipotle emulsion.", price: "389", diet: "v" },
-            { name: "Artisan Egg Toast", desc: "Sourdough, Brown, or Multigrain bread served with eggs your way: Scrambled, Sunny-Side Up, or Omelette.", price: "359", diet: "nv" },
-            { name: "Healthy Breakfast", desc: "Fresh fruits, yoghurt, granola, honey, boiled eggs, and multigrain toast.", price: "349", diet: "v/nv", popular: true },
-            { name: "English Breakfast", desc: "Classic platter with eggs, chicken sausages, toast, baked beans, tomato, and coffee.", price: "369", diet: "nv" },
-            { name: "American Breakfast", desc: "Eggs, chicken sausages, toast, and fluffy pancakes with maple & blueberry.", price: "399", diet: "nv" },
-            { name: "Signature French Toast", desc: "Brioche soaked in vanilla custard with choice of Maple & Fruit or Blueberry sauce.", price: "329", diet: "nv" }
-        ],
-        "Pancakes": [
-            { name: "Classic Pancake", desc: "Fluffy golden stacks with seasonal fruits, butter, and maple syrup.", price: "259", diet: "nv", popular: true },
-            { name: "Nutella Overload Pancake", desc: "Layered with Nutella, chocolate chips, and fresh fruit.", price: "299", diet: "nv" }
-        ],
-        "Brunches": [
-            { name: "Classic Shakshuka", desc: "Poached eggs in spiced tomato and bell pepper ragout with sourdough spears.", price: "269", diet: "nv" },
-            { name: "Thai Green Curry Veg", desc: "Aromatic and creamy green curry served with herbed rice.", price: "340", diet: "v" },
-            { name: "Thai Green Curry Chicken", desc: "Aromatic green curry with tender chicken and herbed rice.", price: "390", diet: "nv" },
-            { name: "Thai Red Curry Veg", desc: "Bold and spicy red curry with fresh vegetables and rice.", price: "340", diet: "v" },
-            { name: "Thai Red Curry Chicken", desc: "Spicy red curry with succulent chicken and herbed rice.", price: "390", diet: "nv" },
-            { name: "Paneer Steak", desc: "Grilled cottage cheese with jalapeño cream sauce, herbed rice, and mash.", price: "439", diet: "v", popular: true },
-            { name: "Grilled Chicken Steak", desc: "Grilled chicken with silky lemon butter sauce, herbed rice, and mash.", price: "479", diet: "nv" }
-        ],
-        "Short Eats": [
-            { name: "Jalapeno Cheese Poppers", desc: "Golden bites stuffed with gooey melted cheese.", price: "249", diet: "v" },
-            { name: "Cheesy Garlic Bread", desc: "Toasted brioche with garlic butter and premium herbs.", price: "279", diet: "v" },
-            { name: "Cheesy Nachos", desc: "Loaded with mozzarella, jalapeños, and fresh garden veggies.", price: "259", diet: "v" },
-            { name: "Cheesy Nachos chicken", desc: "Loaded with mozzarella, chicken, jalapeños, and fresh veggies.", price: "289", diet: "nv" },
-            { name: "Chicken Wings", desc: "Crispy chicken wings tossed in our signature glaze.", price: "267", diet: "nv" },
-            { name: "Veggie Fingers", desc: "Crispy breaded vegetable fingers served with dip.", price: "167", diet: "v" },
-            { name: "Fries - Classic", desc: "Golden crispy fries lightly seasoned with salt.", price: "149", diet: "v" },
-            { name: "Fries - Peri Peri", desc: "Crispy fries tossed in bold, spicy peri-peri seasoning.", price: "169", diet: "v" },
-            { name: "Fries - Cheesy", desc: "Hot crispy fries smothered in rich, creamy melted cheese.", price: "199", diet: "v" }
-        ],
-        "The Pasta Kitchen": [
-            { name: "Classic Alfredo Veg", desc: "Rich, creamy white sauce with Parmesan and herbs.", price: "349", diet: "v" },
-            { name: "Classic Alfredo Non-Veg", desc: "Rich, creamy white sauce with Parmesan, herbs, and grilled chicken.", price: "389", diet: "nv", popular: true },
-            { name: "Penne Arrabiata Veg", desc: "A fiery, tangy tomato and chili sauce.", price: "329", diet: "v" },
-            { name: "Aglio E Olio Veg", desc: "Traditional garlic, olive oil, and a hint of red chili flakes.", price: "329", diet: "v" },
-            { name: "Mac N Cheese", desc: "Classic creamy macaroni in a rich, cheesy sauce.", price: "229", diet: "v" },
-            { name: "Nashville Mac N Cheese", desc: "Creamy macaroni topped with spicy Nashville-style crispy chicken.", price: "299", diet: "nv" }
-        ],
-        "PIZZA Stories": [
-            { name: "BBQ Chicken", desc: "Smoky BBQ base, tender chicken, onions, and garden herbs.", price: "459", diet: "nv" },
-            { name: "Paneer Corn", desc: "Sweet corn and marinated paneer—a vegetarian star.", price: "419", diet: "v" },
-            { name: "Farm House", desc: "Sweet corn and marinated paneer—a vegetarian star.", price: "429", diet: "v" },
-            { name: "Margherita", desc: "Classic tomato sauce, mozzarella, and fresh basil.", price: "409", diet: "v", popular: true }
-        ],
-        "QUESADILLAS": [
-            { name: "Fajita Chicken Verde", desc: "Zesty grilled chicken with peppers, onions, and melted cheese.", price: "369", diet: "nv", popular: true },
-            { name: "Smoky Chipotle Paneer", desc: "Paneer cubes, corn, and chipotle emulsion pressed to melty perfection.", price: "349", diet: "v" },
-            { name: "Golden Corn Pepper", desc: "Sweet corn, bell peppers, and a triple-cheese blend.", price: "329", diet: "v" }
-        ],
-        "Burgers & Sandwiches": [
-            { name: "Paneer Chipotle", desc: "Smoky grilled paneer with fresh veggies and melted cheese.", price: "299", diet: "v" },
-            { name: "Chicken Melt", desc: "Grilled chicken, chipotle sauce, and melty cheese on toasted bread.", price: "379", diet: "nv" },
-            { name: "Brooklyn Veggie", desc: "House-made veggie patty, lettuce, caramelized onions, and chipotle.", price: "349", diet: "v" },
-            { name: "Nashville Paneer", desc: "Golden crunch paneer with Nashville hot spice and brioche.", price: "369", diet: "v" },
-            { name: "Nashville Chicken", desc: "Golden crunch chicken with Nashville hot spice and cool mayo.", price: "389", diet: "nv" },
-            { name: "The Chicken Smash Burger", desc: "Juicy smashed chicken patty with cheese and signature secret sauce.", price: "389", diet: "nv" }
-        ],
-        "Salads & Bowls": [
-            { name: "Burrito Bowl Veg", desc: "Cilantro-lime rice with beans, peppers, lettuce, and sour cream.", price: "299", diet: "v" },
-            { name: "Burrito Bowl Non-Veg", desc: "Cilantro-lime rice with chicken, beans, peppers, and sour cream.", price: "329", diet: "nv" },
-            { name: "Caesar Salad (Veg)", desc: "Romaine lettuce with Caesar dressing, parmesan, and croutons.", price: "299", diet: "v" },
-            { name: "Caesar Salad (Non-Veg)", desc: "Romaine lettuce with grilled chicken, parmesan, and croutons.", price: "349", diet: "nv" },
-            { name: "Watermelon Feta Salad", desc: "Watermelon paired with feta, fresh greens, and citrus dressing.", price: "299", diet: "v" }
-        ],
-        "Desserts": [
-            { name: "Fluffy Cheesecake", desc: "Light and airy cheesecake with a classic buttery crust.", price: "225", diet: "nv", popular: true },
-            { name: "Panna Cotta", desc: "Silky smooth Italian cream dessert with berry coulis.", price: "219", diet: "v" },
-            { name: "Chocolate Walnut Brownie", desc: "Warm, fudgy brownie with toasted walnut chunks.", price: "225", diet: "nv" }
-        ],
-        "Cookies": [
-            { name: "Chocolate Chip Cookie", desc: "Classic chewy cookie loaded with premium chocolate chips.", price: "67", diet: "nv" },
-            { name: "Sugar Free Donut Cookie", desc: "Healthy dough shaped as a donut, lightly sweetened.", price: "75", diet: "v" }
-        ],
-        "Hot Beverages": [
-            { name: "Espresso", desc: "Pure, intense coffee shot.", price: "149" },
-            { name: "Americano", desc: "Rich espresso with hot water.", price: "169" },
-            { name: "Cappuccino", desc: "Espresso with steamed milk and deep foam.", price: "229" },
-            { name: "Flat White", desc: "Smooth espresso with velvet microfoam.", price: "229" },
-            { name: "Café Latte", desc: "Espresso with light steamed milk and thin foam.", price: "239" },
-            { name: "Café Mocha", desc: "Espresso blended with rich chocolate and steamed milk.", price: "259" },
-            { name: "Hot Chocolate", desc: "Classic, velvety chocolate made with premium cocoa.", price: "289" },
-            { name: "Affogato", desc: "Espresso poured over creamy vanilla gelato.", price: "249" },
-            { name: "Cortado", desc: "Equal parts espresso and warm steamed milk.", price: "180" }
-        ],
-        "Cold Beverages": [
-            { name: "Iced Americano", desc: "Chilled espresso over ice with water.", price: "179" },
-            { name: "Classic Cold Coffee", desc: "Our signature smooth iced coffee.", price: "269" },
-            { name: "Vietnamese Coffee", desc: "Traditional drip coffee with sweet condensed milk.", price: "279" },
-            { name: "Caramel Frappe", desc: "Blended coffee with rich caramel swirls.", price: "299" },
-            { name: "Boba Tea", desc: "Classic milk tea with chewy tapioca pearls.", price: "167" },
-            { name: "Blue Lagoon Mocktail", desc: "Sparkling blue citrus refreshment.", price: "199" },
-            { name: "Brownie Loaded Shake", desc: "Thick milkshake topped with brownie crumbles.", price: "290" }
-        ]
-    };
+    // --- DYNAMIC MENU LOADING FROM API ---
+    let menuData = {};
+    let categoryImages = {};
 
-    const categoryImages = {
-        "Breakfasts": "images/big breakfast plates.avif",
-        "Pancakes": "images/pancake.png",
-        "Brunches": "images/All Day Brunch.avif",
-        "Short Eats": "images/short eatss.jpg",
-        "The Pasta Kitchen": "images/pastakitchen.avif",
-        "PIZZA Stories": "images/pizza stories.avif",
-        "QUESADILLAS": "images/QUESADILLAS.avif",
-        "Burgers & Sandwiches": "images/Burgers & Sandwiches.avif",
-        "Salads & Bowls": "images/salads and bowls.avif",
-        "Desserts": "images/cheescake.jpg",
-        "Cookies": "images/cookies.avif",
-        "Hot Beverages": "images/hot beverages.jpg",
-        "Cold Beverages": "images/cold beverages.jpg"
-    };
+    async function fetchDynamicMenu() {
+        const API_URL = 'https://opensheet.elk.sh/1YxQHRN1I54pNH00nb3MTYsTNl0rVNCRMdJwsMblVesc/Menu';
+        try {
+            const response = await fetch(API_URL);
+            const data = await response.json();
+            
+            // Process API data into categories with flexible header mapping
+            data.forEach(item => {
+                // Flexible mapping for client-friendly headers
+                const name = item['ITEM NAME'] || item['Name'] || item['item name'] || "Untitled Item";
+                const price = item['Final Cost'] || item['Price'] || item['price'] || "0";
+                const desc = item['DESCRIPTION'] || item['Description'] || item['description'] || "";
+                const cat = item['CATEGORY'] || item['Category'] || item['category'] || "Uncategorized";
+                const diet = item['Veg/Non Veg'] || item['Diet'] || item['diet'] || "";
+                const img = item['Image'] || item['image'] || 'images/logo.jpg';
+
+                if (!menuData[cat]) {
+                    menuData[cat] = [];
+                    // Use the first item's image as the category cover
+                    categoryImages[cat] = img;
+                }
+                
+                menuData[cat].push({
+                    name: name,
+                    desc: desc,
+                    price: String(price).replace('₹', '').trim(),
+                    diet: diet,
+                    image: img
+                });
+            });
+
+            // Once data is ready, initialize the menu
+            if (document.getElementById('category-grid')) {
+                initMenu();
+            }
+        } catch (error) {
+            console.error('Error fetching menu:', error);
+            // Fallback or error handling could go here
+        }
+    }
+
 
 
 
@@ -480,6 +410,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     if (document.getElementById('category-grid')) {
-        initMenu();
+        fetchDynamicMenu();
     }
 });
