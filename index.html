@@ -48,13 +48,21 @@
                     <span class="logo-sub">Cafe</span>
                 </div>
             </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></div>
+            <div style="display: flex; align-items: center; gap: 30px; margin-left: auto;">
+                <ul class="nav-links" style="margin-left: 0;">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="https://wa.me/919743529696?text=Hello%20I%20would%20like%20to%20book%20a%20table" 
+                   class="btn btn-primary nav-cta-btn" 
+                   target="_blank" 
+                   style="padding: 10px 22px; font-size: 0.75rem; border-radius: 50px; white-space: nowrap; transition: transform 0.3s;">
+                   Book a Table
+                </a>
+            </div>
+            <div class="mobile-menu-btn" style="margin-left: 20px;"><i class="fa-solid fa-bars"></i></div>
         </div>
     </nav>
 
@@ -247,15 +255,27 @@
                     <p class="detail-text">Opposite Capital Market, Hennur–Bagalur Main Road</p>
                 </div>
 
-                <div class="visit-actions">
-                    <a href="https://maps.app.goo.gl/ExFvPbKGzKjft3BR8?g_st=ic" class="btn-dark-minimal"
-                        target="_blank">
-                        Open on Maps
-                    </a>
-                    <a href="https://link.zomato.com/xqzv/rshare?id=1299797513056318e" class="btn-dark-outline"
-                        target="_blank">
-                        Order on Zomato
-                    </a>
+                <div class="visit-actions" style="flex-direction: column; align-items: stretch; gap: 20px;">
+                    <div style="display: flex; gap: 15px; width: 100%;">
+                        <a href="https://maps.app.goo.gl/ExFvPbKGzKjft3BR8?g_st=ic" class="btn-dark-minimal"
+                            target="_blank" style="flex: 1; text-align: center; border-radius: 50px; padding: 14px 20px;">
+                            Open on Maps
+                        </a>
+                        <a href="https://link.zomato.com/xqzv/rshare?id=1299797513056318e" class="btn-dark-outline"
+                            target="_blank" style="flex: 1; text-align: center; border-radius: 50px; padding: 14px 20px;">
+                            Order on Zomato
+                        </a>
+                    </div>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); padding: 25px; border-radius: 15px; text-align: center;" class="reveal reveal-up">
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px; letter-spacing: 0.5px;">Order directly from us via WhatsApp if you're nearby.</p>
+                        <a href="https://wa.me/919743529696?text=Hello%20I%20would%20like%20to%20place%20an%20order" 
+                           class="btn btn-primary" 
+                           target="_blank"
+                           style="padding: 12px 30px; font-size: 0.8rem; border-radius: 50px; width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                            <i class="fa-brands fa-whatsapp"></i> Order Now
+                        </a>
+                    </div>
                 </div>
             </div>
 

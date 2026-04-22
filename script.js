@@ -195,6 +195,45 @@ document.addEventListener('DOMContentLoaded', () => {
     let menuData = {};
     let categoryImages = {};
 
+    // Helper: Convert Google Drive sharing link to direct download link
+    function convertDriveLink(url) {
+        if (!url) return "";
+        // More robust regex to handle various Drive link formats
+        const match = url.match(/\/d\/([-\w]{25,})/);
+        if (match && match[1]) {
+            // Using the thumbnail endpoint is much more reliable for embedding in <img> tags
+            return `https://drive.google.com/thumbnail?id=${match[1]}&sz=w1000`;
+        }
+        return url;
+    }
+
+    // Default images per category
+    const categoryDefaultImages = {
+        "Pasta": "https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg",
+        "Pizza": "https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg",
+        "Quesadilla": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg",
+        "Sandwich": "https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg",
+        "Breakfast": "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg",
+        "Brunch": "https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg",
+        "Salad": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg",
+        "Snacks": "https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg",
+        "Dessert": "https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg",
+        "Hot Beverages": "https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg",
+        "Cold Beverages": "https://images.pexels.com/photos/616836/pexels-photo-616836.jpeg",
+        "Events": "https://images.pexels.com/photos/2072181/pexels-photo-2072181.jpeg"
+    };
+
+    // Main image selection logic with fallback
+    function getFinalImage(imgUrl, category = "Events") {
+        const converted = convertDriveLink(imgUrl);
+        // Allow absolute URLs and relative image paths
+        const isValid = converted && (converted.startsWith("http") || converted.startsWith("images/") || converted.startsWith("./images/"));
+        
+        if (isValid) return converted;
+        
+        return categoryDefaultImages[category] || categoryDefaultImages["Events"] || "https://placehold.co/600x400?text=Bloom+Breeze";
+    }
+
     async function fetchDynamicMenu() {
         const API_URL = 'https://opensheet.elk.sh/1YxQHRN1I54pNH00nb3MTYsTNl0rVNCRMdJwsMblVesc/Menu';
         try {
@@ -209,12 +248,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const desc = item['DESCRIPTION'] || item['Description'] || item['description'] || "";
                 const cat = item['CATEGORY'] || item['Category'] || item['category'] || "Uncategorized";
                 const diet = item['Veg/Non Veg'] || item['Diet'] || item['diet'] || "";
-                const img = item['Image'] || item['image'] || 'images/logo.jpg';
+                const img = item['Image'] || item['image'] || '';
+                const finalImg = getFinalImage(img, cat);
 
                 if (!menuData[cat]) {
                     menuData[cat] = [];
                     // Use the first item's image as the category cover
-                    categoryImages[cat] = img;
+                    categoryImages[cat] = finalImg;
                 }
                 
                 menuData[cat].push({
@@ -222,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     desc: desc,
                     price: String(price).replace('₹', '').trim(),
                     diet: diet,
-                    image: img
+                    image: finalImg
                 });
             });
 
@@ -249,7 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
             card.className = "category-card reveal reveal-up";
             card.style.transitionDelay = `${index * 0.1}s`;
             card.innerHTML = `
-                <img src="${categoryImages[cat] || 'images/logo.jpg'}" alt="${cat}" loading="lazy">
+                <img src="${categoryImages[cat]}" alt="${cat}" loading="lazy" onerror="this.src='https://placehold.co/600x400?text=Bloom+Breeze'">
                 <div class="category-info">
                     <h3>${cat}</h3>
                     <p>${menuData[cat].length} Items</p>
@@ -349,7 +389,11 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => view.classList.add('active'), 50);
             
             document.getElementById('view-title').innerText = category;
-            document.getElementById('view-cat-img').src = categoryImages[category] || '';
+            const catImg = document.getElementById('view-cat-img');
+            if (catImg) {
+                catImg.src = categoryImages[category] || '';
+                catImg.onerror = () => { catImg.src = 'https://placehold.co/600x400?text=Bloom+Breeze'; };
+            }
             
             const list = document.getElementById('items-list');
             list.innerHTML = '';
@@ -409,7 +453,71 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 600);
     };
 
+    // --- DYNAMIC EVENTS LOADING FROM API ---
+    async function fetchDynamicEvents() {
+        const API_URL = 'https://opensheet.elk.sh/19oE6kKYZBelK8tauiEPEuBSmHi8awFlDZ_HJdY5nlcw/1';
+        const container = document.getElementById('events-flow-container');
+        if (!container) return;
+
+        try {
+            const response = await fetch(API_URL);
+            const data = await response.json();
+            const rows = container.querySelectorAll('.event-row');
+
+            data.forEach((item, index) => {
+                if (index < rows.length) {
+                    const row = rows[index];
+                    const eventTitle = item.Title || item.title || item.Name || item.name || '';
+                    
+                    // Map Title
+                    const nameEl = row.querySelector('.event-name');
+                    if (nameEl) nameEl.textContent = eventTitle;
+
+                    // Map Subtitle
+                    const eventSubtitle = item.Subtitle || item.subtitle || '';
+                    const tagEl = row.querySelector('.event-tag');
+                    if (tagEl) tagEl.textContent = eventSubtitle;
+
+                    // Map Description
+                    const eventDesc = item.Description || item.description || '';
+                    const descEl = row.querySelector('.event-desc');
+                    if (descEl) descEl.textContent = eventDesc;
+
+                    // Map Image
+                    const imgEl = row.querySelector('.event-card img');
+                    if (imgEl) {
+                        const rawImg = item.Image || item.image || '';
+                        const finalImg = getFinalImage(rawImg, "Events");
+                        imgEl.src = finalImg;
+                        imgEl.onerror = () => { 
+                            imgEl.src = 'https://placehold.co/600x400?text=Bloom+Breeze'; 
+                        };
+                    } else {
+                        console.warn(`No image element found for event row ${index}`);
+                    }
+
+                    // Map Tag (Optional label in details)
+                    const detailsSpans = row.querySelectorAll('.event-details-mini span');
+                    const eventTag = item.Tag || item.tag;
+                    if (detailsSpans.length > 0 && eventTag) {
+                        // Keep the icon if it exists
+                        const icon = detailsSpans[0].querySelector('i');
+                        detailsSpans[0].textContent = '';
+                        if (icon) detailsSpans[0].appendChild(icon);
+                        detailsSpans[0].appendChild(document.createTextNode(' ' + eventTag));
+                    }
+                }
+            });
+        } catch (error) {
+            console.error('Error fetching events:', error);
+        }
+    }
+
     if (document.getElementById('category-grid')) {
         fetchDynamicMenu();
+    }
+
+    if (document.getElementById('events-flow-container')) {
+        fetchDynamicEvents();
     }
 });
