@@ -2102,6 +2102,13 @@ footer {
     .logo-main       { font-size: 1.15rem; }
     .logo-sub        { font-size: 0.78rem; }
 
+    /* Navbar CTA responsiveness */
+    .nav-cta-btn {
+        padding: 8px 16px !important;
+        font-size: 0.7rem !important;
+        margin-left: 10px !important;
+    }
+
     /* Hero */
     .hero-content h1  { font-size: clamp(1.8rem, 9vw, 2.4rem); line-height: 1.25; }
     .hero-content p   { font-size: 0.95rem; margin-bottom: 30px; }
